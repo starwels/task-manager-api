@@ -40,12 +40,27 @@ RSpec.describe 'Users API', type: :request do
         context 'when params are valid' do
             let(:user_params) { attributes_for(:user) }
 
-            it 'return status 201' do
+            it 'returns status 201' do
                 expect(response).to have_http_status(201)
+            end
+
+            it 'returns json data' do
+                user_response = JSON.parse(response.body)
+                expect(user_response['email']).to eq(user_params[:email])
             end
         end
 
         context 'when params are invalid' do
+            let(:user_params) { attributes_for(:user, email: 'invalid@') }
+
+            it 'returns status 422' do
+                expect(response).to have_http_status(422)
+            end
+
+            it 'returns json error data' do
+                user_response = JSON.parse(response.body)
+                expect(user_response).to have_key('errors')
+            end
         end
     end
 end
