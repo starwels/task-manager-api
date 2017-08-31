@@ -13,13 +13,13 @@ RSpec.describe 'Users API', type: :request do
         end
 
         context 'when user exists' do
-            it 'returns the user' do
-                user_response = JSON.parse(response.body)
-                expect(user_response['id']).to eq(user_id)
-            end
-
             it 'return status 200' do
                 expect(response).to have_http_status(200)
+            end
+
+            it 'returns the user' do
+                user_response = JSON.parse(response.body, symbolize_names: true)
+                expect(user_response[:id]).to eq(user_id)
             end
         end
 
@@ -45,8 +45,8 @@ RSpec.describe 'Users API', type: :request do
             end
 
             it 'returns json data' do
-                user_response = JSON.parse(response.body)
-                expect(user_response['email']).to eq(user_params[:email])
+                user_response = JSON.parse(response.body, symbolize_names: true)
+                expect(user_response[:email]).to eq(user_params[:email])
             end
         end
 
@@ -58,8 +58,8 @@ RSpec.describe 'Users API', type: :request do
             end
 
             it 'returns json error data' do
-                user_response = JSON.parse(response.body)
-                expect(user_response).to have_key('errors')
+                user_response = JSON.parse(response.body, symbolize_names: true)
+                expect(user_response).to have_key(:errors)
             end
         end
     end
