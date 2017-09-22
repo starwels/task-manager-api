@@ -1,23 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # assim o user so e criado quando for chamado,
-  # porem, nao posso usar o should no caso de 'be_valid'
-  # pois ele tenta usar o subject, que so chama o metodo
-  # 'new' do model
+  # let so cria o obj quando e chamado
+  # let! cria antes
+  
   let(:user) { build :user }
 
-  subject { user }
+  it { expect(user).to respond_to :email }
+  it { expect(user).to respond_to :password }
+  it { expect(user).to respond_to :password_confirmation }
 
-  it { should respond_to :email }
-  it { should respond_to :password }
-  it { should respond_to :password_confirmation }
+  it { expect(user).to be_valid }
 
-  it { should be_valid }
-
-  it { should validate_uniqueness_of(:email).case_insensitive }
-  it { should validate_confirmation_of :password }
-  it { should validate_uniqueness_of :auth_token }
+  it { expect(user).to validate_uniqueness_of(:email).case_insensitive }
+  it { expect(user).to validate_confirmation_of :password }
+  it { expect(user).to validate_uniqueness_of :auth_token }
 
   describe '#info' do
     it 'returns email and created_at' do
