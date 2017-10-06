@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repository to study and practice: 
+  Rails 5.1+ as API
+  TDD
+  
+Test framework and gems to help:
+  RSpec
+  Factory Girl
+  Faker
+  Shoulda Matchers
+  Database cleaner
+  
+Api::V1:
+  Authentication without gem
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Api::V2:
+  Authentication with Devise and Devise token auth
+  
