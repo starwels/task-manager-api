@@ -16,4 +16,3 @@ Api::V1:
 
 Api::V2:
   Authentication with Devise and Devise token auth
-  
