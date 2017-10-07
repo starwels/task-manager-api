@@ -35,7 +35,7 @@ RSpec.describe Authenticable do
     context 'when no user is logged in' do
       before do
         # setting an action just for test purpose
-        allow(app_controller).to receive(:current_user).and_return(:nil)
+        allow(app_controller).to receive(:current_user).and_return(nil)
         routes.draw { get 'restricted_action' => 'anonymous#restricted_action'}
         get :restricted_action
       end
