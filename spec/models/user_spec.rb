@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # let so cria o obj quando e chamado
-  # let! cria antes
+  # let creates object after it is called
+  # let! creates before
 
   let(:user) { build :user }
 
