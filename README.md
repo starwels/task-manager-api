@@ -4,7 +4,7 @@ Repository to study and practice:
   -Rails 5.1+ as API  
   -TDD  
   
-Test framework and gems to help:  
+Test framework and gems for help:  
   -RSpec  
   -Factory Girl  
   -Faker  
